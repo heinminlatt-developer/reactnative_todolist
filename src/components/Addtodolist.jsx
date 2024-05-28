@@ -23,11 +23,11 @@ const Addtodolist = ({carryData, saveEdit, editingItem}) => {
   };
   useEffect(() => {
     if (editingItem) {
-      setId: editingItem.id;
-      setName: editingItem.name;
+      setId(editingItem.id);
+      setName(editingItem.name);
     } else {
-      setId: '';
-      setName: '';
+      setId('');
+      setName('');
     }
   }, [editingItem]);
   return (
@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'steelblue',
   },
-
   wrapperInput: {
     flex: 1,
     width: '40%',
@@ -85,11 +84,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-
   input: {
     borderRadius: 5,
     marginHorizontal: 20,
-    height: 40,
+    height: 50,
     borderColor: '#7a42f4',
     borderWidth: 1,
     backgroundColor: 'white',

@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-
+import Fallback from './Fallback';
 const Cardtodolist = ({data, deleteData, onEdit}) => {
   const renderItem = ({item}) => {
     const deleteChoiceHandler = () => {
@@ -36,13 +36,15 @@ const Cardtodolist = ({data, deleteData, onEdit}) => {
   };
   return (
     <View style={styles.flatContainer}>
-      <ScrollView>
+      {data.length > 0 ? (
         <FlatList
           data={data}
           renderItem={renderItem}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.id.toString()}
         />
-      </ScrollView>
+      ) : (
+        <Fallback />
+      )}
     </View>
   );
 };
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     width: 300,
-    height: 50,
+    height: 70,
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',

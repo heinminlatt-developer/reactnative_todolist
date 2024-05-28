@@ -14,7 +14,6 @@ const App = () => {
   };
   const editItemHandler = item => {
     console.log('item', item);
-    // setData(item)
     setEditingItem(item);
   };
   const saveEditItemHandler = editData => {
@@ -22,6 +21,7 @@ const App = () => {
     setData(prevData =>
       prevData.map(item => (item.id == editData.id ? editData : item)),
     );
+    setEditingItem(null);
   };
   console.log('Data=>>', data);
   return (
@@ -39,9 +39,7 @@ const App = () => {
     </View>
   );
 };
-
 export default App;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
