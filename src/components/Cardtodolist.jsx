@@ -14,14 +14,14 @@ const Cardtodolist = ({data, deleteData, onEdit}) => {
       deleteData(item.id);
     };
     const editChoiceHandler = () => {
-      let editData = {id: item.id, name: item.name};
+      let editData = {id: item.id, name: item.todo};
       onEdit(editData);
     };
     return (
       <View style={styles.container}>
         <View style={styles.dataContainer}>
           <Text>id: {item.id}</Text>
-          <Text>Name:{item.name}</Text>
+          <Text>Name:{item.todo}</Text>
         </View>
         <View style={styles.iconContainer}>
           <TouchableOpacity onPress={editChoiceHandler}>
@@ -40,7 +40,7 @@ const Cardtodolist = ({data, deleteData, onEdit}) => {
         <FlatList
           data={data}
           renderItem={renderItem}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={item => item.id}
         />
       ) : (
         <Fallback />

@@ -12,9 +12,10 @@ const Addtodolist = ({carryData, saveEdit, editingItem}) => {
   const [name, setName] = useState('');
   const sendDataHandler = () => {
     const data = {id: id, name: name};
+    const savedata={id:id,todo:name};
     if (id != '' || name != '') {
       if (editingItem) {
-        saveEdit(data);
+        saveEdit(savedata);
       } else {
         carryData(data);
       }
@@ -103,7 +104,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
   },
-
   addText: {
     color: 'steelblue',
     fontSize: 15,

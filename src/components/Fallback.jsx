@@ -17,9 +17,7 @@ const Fallback = () => {
     </View>
   );
 };
-
 export default Fallback;
-
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'flex-start',
